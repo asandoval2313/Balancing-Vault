@@ -1,6 +1,6 @@
-# Sample Hardhat Project
+# 70-30 Balancing Crypto Vault
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This is a crypto vault containing 70% stablecoins (DAI) and 30% Weth. The vault can rebalance by calling the Rebalance function. This project was built with hardhat. 
 
 Try running some of the following tasks:
 
