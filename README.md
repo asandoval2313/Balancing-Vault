@@ -1,4 +1,4 @@
-# 70-30 Balancing Crypto Vault
+# 70-30 Balancing Crypto Vault (UNDER DEVELOPMENT)
 
 This is a crypto vault containing 70% stablecoins (DAI) and 30% Weth. The vault can rebalance by calling the Rebalance function. This project was built with hardhat. 
 
