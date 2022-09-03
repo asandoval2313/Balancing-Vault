@@ -31,6 +31,8 @@ contract BalancingVault {
     DepositableERC20 wethToken = DepositableERC20(wethAddress);
     IQuoter quoter = IQuoter(uinswapV3QuoterAddress);
 
+    event vaultLog(string msg, uint value);
+
     constructor() {
         console.log("Deploying BalancingVault");
         owner = msg.sender;
@@ -67,6 +69,14 @@ contract BalancingVault {
         if (wethBalance > 0) {
             wethToken.safeTransfer(owner, wethBalance);
         }
+    }
+
+    function wrapEth() public {
+        require(msg.sender == owner, "only owner can wrap eth stored in vault");
+        uint ethBalance = address(this).balance;
+        require(ethBalance > 0, "there is no eth in the vault");
+        emit vaultLog("eth wrapped", ethBalance);
+        wethToken.deposit{ value: ethBalance }();
     }
 
 }
